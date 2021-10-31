@@ -64,7 +64,16 @@ public class DeluxeHubPlugin extends JavaPlugin {
             return;
         }
 
-        SERVER_VERSION = Integer.parseInt(Bukkit.getBukkitVersion().split("-")[0].replace(".", "#").split("#")[1]);
+        String versionName = Bukkit.getBukkitVersion();
+        if (versionName.contains("LuckyBedWarsSpigot") || versionName.contains("LuckyHubSpigot") || versionName.contains("LuckyLimboBukkit"))
+        {
+            SERVER_VERSION = 8;
+        }
+        else
+        {
+            SERVER_VERSION = Integer.parseInt(Bukkit.getBukkitVersion().split("-")[0].replace(".", "#").split("#")[1]);
+        }
+
         if (SERVER_VERSION > 15) TextUtil.HEX_USE = true;
 
         // Enable bStats metrics
